@@ -1,0 +1,1737 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diego Stefano Davila Diaz's portfolio: software development, IT operations, and automation.">
+  <meta name="theme-color" content="#101820">
+  <title>Diego Dávila | Software Development and IT Operations</title>
+  <style>
+    :root {
+      --ink: #101820;
+      --ink-soft: #26343a;
+      --paper: #f6f8f7;
+      --white: #ffffff;
+      --line: #d8dfdc;
+      --teal: #19766f;
+      --teal-dark: #105d58;
+      --coral: #d45e4c;
+      --yellow: #f2b632;
+      --blue: #2d6f91;
+      --nav-height: 66px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 20px);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    body,
+    button,
+    a { -webkit-font-smoothing: antialiased; }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a { color: inherit; }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button { font: inherit; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      padding: 9px 12px;
+      color: var(--white);
+      background: var(--ink);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-height);
+      border-bottom: 1px solid rgba(16, 24, 32, .12);
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      height: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar { display: none; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      flex: 0 0 auto;
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-download {
+      padding: 8px 12px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      align-items: end;
+      min-height: calc(82svh - var(--nav-height));
+      overflow: hidden;
+      color: var(--white);
+      background: linear-gradient(135deg, #172d33, var(--ink));
+      isolation: isolate;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding-block: 60px 70px;
+    }
+
+    .hero-mark {
+      position: absolute;
+      top: 50%;
+      right: max(7vw, 40px);
+      display: grid;
+      width: min(29vw, 420px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .94);
+      place-items: center;
+      transform: translateY(-50%);
+    }
+
+    .hero-mark img { width: 68%; }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #d7f0ed;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .availability::before {
+      width: 9px;
+      height: 9px;
+      border: 2px solid rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      background: #64d3a4;
+      content: "";
+      animation: pulse 2.2s ease-out infinite;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      margin: 0;
+      font-size: 64px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .hero-lead {
+      max-width: 660px;
+      margin: 20px 0 0;
+      font-size: 21px;
+      line-height: 1.45;
+      text-wrap: pretty;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+    }
+
+    .button-primary {
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .button-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, .7);
+      background: rgba(16, 24, 32, .35);
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .about-section {
+      padding: 58px 0;
+      background: var(--white);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 680px);
+      gap: 46px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: 210px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 12px 12px 0 #dceae6;
+    }
+
+    .about-copy h2 {
+      margin: 0 0 16px;
+      font-size: 38px;
+      line-height: 1.08;
+    }
+
+    .about-copy p:last-child {
+      margin: 0;
+      color: #46565e;
+      font-size: 18px;
+      text-wrap: pretty;
+    }
+
+    .section-white { background: var(--white); }
+
+    .section-dark {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section-dark .section-kicker { color: #78c9c0; }
+
+    .section h2 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin: 0;
+      color: #46565e;
+      font-size: 19px;
+      text-wrap: pretty;
+    }
+
+    .section-dark .section-intro { color: #cad4d1; }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .focus-item {
+      min-width: 0;
+      padding: 32px;
+      border-right: 1px solid var(--line);
+    }
+
+    .focus-item:first-child { padding-left: 0; }
+    .focus-item:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .focus-index {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .focus-item h3 {
+      margin: 14px 0 8px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .focus-item p {
+      margin: 0;
+      color: #526269;
+    }
+
+    .services-section {
+      padding: 74px 0;
+      border-top: 1px solid #cbd8d3;
+      border-bottom: 1px solid #cbd8d3;
+      background: #eaf2ef;
+    }
+
+    .services-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+
+    .services-heading h2 {
+      max-width: 700px;
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .services-heading .button {
+      flex: 0 0 auto;
+      color: var(--white);
+      background: var(--teal-dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid #b8c9c3;
+      border-bottom: 1px solid #b8c9c3;
+    }
+
+    .service-item {
+      min-width: 0;
+      padding: 28px 24px;
+      border-right: 1px solid #b8c9c3;
+    }
+
+    .service-item:first-child { padding-left: 0; }
+    .service-item:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .service-item strong {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 19px;
+    }
+
+    .service-item p {
+      margin: 0;
+      color: #4b5d63;
+      font-size: 15px;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .skills-copy h2 { max-width: 500px; }
+
+    .skills-copy p {
+      max-width: 560px;
+      margin: 22px 0 0;
+      color: #cad4d1;
+      font-size: 18px;
+    }
+
+    .skill-groups {
+      border-top: 1px solid #405058;
+    }
+
+    .skill-group {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid #405058;
+    }
+
+    .skill-group h3 {
+      margin: 0;
+      color: #80d1c7;
+      font-size: 15px;
+    }
+
+    .skill-group p {
+      margin: 0;
+      color: #eef3f1;
+    }
+
+    .timeline {
+      max-width: 940px;
+      margin-left: auto;
+      border-left: 2px solid var(--line);
+    }
+
+    .timeline-entry {
+      position: relative;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 30px;
+      padding: 0 0 38px 36px;
+    }
+
+    .timeline-entry:last-child { padding-bottom: 0; }
+
+    .timeline-entry::before {
+      position: absolute;
+      top: 5px;
+      left: -7px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      background: var(--teal);
+      content: "";
+      box-shadow: 0 0 0 1px var(--teal);
+    }
+
+    .timeline-date {
+      margin: 0;
+      color: #66757b;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .timeline-entry h3 {
+      margin: 0 0 5px;
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .timeline-company {
+      margin: 0 0 10px;
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+
+    .timeline-entry ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #45545b;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 0 34px;
+      overflow-x: auto;
+      border: 1px solid #aebbb7;
+      border-radius: 6px;
+      background: var(--white);
+      scrollbar-width: none;
+    }
+
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .filter-button {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+      border: 0;
+      border-right: 1px solid #aebbb7;
+      color: var(--ink-soft);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .filter-button:last-child { border-right: 0; }
+
+    .filter-button[aria-pressed="true"] {
+      color: var(--white);
+      background: var(--teal-dark);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .project-card[hidden] { display: none; }
+
+    .project-card-featured { grid-column: span 2; }
+
+    .project-card-featured .project-description { max-width: 800px; }
+
+    .project-visual {
+      position: relative;
+      display: grid;
+      min-height: 190px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      place-items: center;
+    }
+
+    .project-visual > * { transition: transform .3s ease; }
+
+    .enrollment-preview {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 12px;
+      width: calc(100% - 40px);
+      padding: 14px;
+      border: 1px solid #c4d1cd;
+      border-radius: 6px;
+      background: #f8fbfa;
+      box-shadow: 0 12px 28px rgba(16, 24, 32, .12);
+    }
+
+    .enrollment-panel {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid #d7e0dd;
+      border-radius: 4px;
+      background: var(--white);
+    }
+
+    .enrollment-panel strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--teal-dark);
+      font-size: 12px;
+    }
+
+    .form-line {
+      height: 7px;
+      margin-top: 7px;
+      border-radius: 2px;
+      background: #dfe8e5;
+    }
+
+    .form-line.short { width: 66%; }
+
+    .admin-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .admin-metrics span {
+      display: grid;
+      min-height: 38px;
+      border-radius: 3px;
+      color: var(--white);
+      background: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      place-items: center;
+    }
+
+    .admin-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-top: 1px solid #e1e7e5;
+      color: #4d5e64;
+      font-size: 10px;
+    }
+
+    .project-visual img {
+      width: 100%;
+      height: 190px;
+      object-fit: contain;
+    }
+
+    .visual-biometric { background: #0d7bc0; }
+
+    .visual-biometric img {
+      width: 118px;
+      height: 118px;
+    }
+
+    .visual-finance {
+      background: #eff6f6;
+    }
+
+    .visual-finance img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .visual-uni {
+      padding: 30px;
+      background: #fff;
+    }
+
+    .visual-uni img {
+      width: 220px;
+      height: auto;
+    }
+
+    .mini-window {
+      width: calc(100% - 44px);
+      border: 1px solid #bcc7c3;
+      border-radius: 6px;
+      background: var(--white);
+      box-shadow: 0 12px 24px rgba(16, 24, 32, .1);
+    }
+
+    .mini-window-bar {
+      display: flex;
+      gap: 5px;
+      padding: 8px 10px;
+      border-bottom: 1px solid #dce3e0;
+      background: #edf1ef;
+    }
+
+    .mini-window-bar i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #9ca9a4;
+    }
+
+    .crm-flow {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+    }
+
+    .crm-flow span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 9px;
+      border-left: 3px solid var(--teal);
+      background: #f2f7f5;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .crm-flow small { color: #687872; }
+
+    .document-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      width: 100%;
+      height: 100%;
+      background: #ecf3f1;
+    }
+
+    .document {
+      display: grid;
+      width: 78px;
+      height: 96px;
+      border: 1px solid #9fb0aa;
+      border-radius: 4px;
+      color: var(--ink);
+      background: var(--white);
+      font-size: 18px;
+      font-weight: 900;
+      place-items: center;
+    }
+
+    .document.tex {
+      color: var(--white);
+      border-color: var(--teal-dark);
+      background: var(--teal-dark);
+    }
+
+    .flow-arrow {
+      color: var(--coral);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .store-preview {
+      width: calc(100% - 38px);
+      padding: 16px;
+      border-radius: 6px;
+      color: #27333a;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(16, 24, 32, .12);
+    }
+
+    .store-preview strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--coral);
+    }
+
+    .store-row {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      padding: 7px 0;
+      border-top: 1px solid #e2e8e5;
+      font-size: 11px;
+    }
+
+    .store-row i {
+      height: 26px;
+      border-radius: 3px;
+      background: #d9e4df;
+    }
+
+    .attendance-preview {
+      width: calc(100% - 40px);
+      padding: 16px;
+      border-radius: 6px;
+      color: #eaf4f1;
+      background: #15252b;
+      box-shadow: 0 12px 26px rgba(16, 24, 32, .18);
+    }
+
+    .camera-frame {
+      display: grid;
+      height: 64px;
+      margin-bottom: 10px;
+      border: 1px solid #3f5b64;
+      color: #73cfc4;
+      background: #0b1418;
+      font-size: 12px;
+      place-items: center;
+    }
+
+    .attendance-preview p {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0 0;
+      font-size: 11px;
+    }
+
+    .followup-table {
+      width: calc(100% - 38px);
+      border-collapse: collapse;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 12px 24px rgba(16, 24, 32, .12);
+      font-size: 11px;
+    }
+
+    .followup-table th,
+    .followup-table td {
+      padding: 8px;
+      border-bottom: 1px solid #e2e8e5;
+      text-align: left;
+    }
+
+    .followup-table th {
+      color: var(--white);
+      background: var(--blue);
+    }
+
+    .terminal {
+      width: calc(100% - 38px);
+      padding: 16px;
+      border: 1px solid #33444b;
+      border-radius: 6px;
+      color: #bce7df;
+      background: #10191e;
+      box-shadow: 0 12px 24px rgba(16, 24, 32, .2);
+      font: 12px/1.65 "Courier New", monospace;
+    }
+
+    .terminal b { color: #f2c35b; }
+
+    .project-content {
+      display: flex;
+      flex: 1;
+      padding: 22px;
+      flex-direction: column;
+    }
+
+    .project-type {
+      margin: 0 0 8px;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .project-description {
+      margin: 12px 0 18px;
+      color: #526168;
+      font-size: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: auto 0 18px;
+    }
+
+    .tag {
+      padding: 4px 7px;
+      border: 1px solid #cad4d0;
+      border-radius: 999px;
+      color: #405159;
+      background: #f6f8f7;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 28px;
+      padding-top: 14px;
+      border-top: 1px solid #e1e6e4;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .project-link {
+      color: var(--teal-dark);
+      text-decoration: none;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    .private-label { color: #7a6761; }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 60px;
+    }
+
+    .education-column h3 {
+      margin: 0 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 21px;
+    }
+
+    .education-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-item strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .education-item p {
+      margin: 4px 0 0;
+      color: #53636a;
+    }
+
+    .contact-section {
+      padding: 86px 0;
+      color: var(--white);
+      background: var(--teal-dark);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .contact-section h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: 48px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .contact-section p {
+      max-width: 670px;
+      margin: 18px 0 0;
+      color: #d1ece8;
+      font-size: 18px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 10px;
+      justify-items: start;
+    }
+
+    .contact-links a {
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .contact-links a:hover { text-decoration: underline; }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .contact-actions .button-primary {
+      color: var(--teal-dark);
+      background: var(--white);
+    }
+
+    .contact-actions .button-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, .7);
+      background: transparent;
+    }
+
+    .contact-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 45;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 6px;
+      color: var(--white);
+      background: var(--coral);
+      box-shadow: 0 12px 28px rgba(16, 24, 32, .24);
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(14px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .contact-float.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .motion-ready .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .motion-ready .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-links a.is-active { color: var(--teal); }
+
+    footer {
+      padding: 26px 0;
+      color: #b8c4c0;
+      background: var(--ink);
+    }
+
+    .footer-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer p { margin: 0; }
+
+    :focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(100, 211, 164, .5); }
+      70% { box-shadow: 0 0 0 8px rgba(100, 211, 164, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(100, 211, 164, 0); }
+    }
+
+    @media (hover: hover) {
+      .project-card:hover {
+        border-color: #aebfba;
+        box-shadow: 0 16px 34px rgba(16, 24, 32, .11);
+        transform: translateY(-5px);
+      }
+
+      .project-card:hover .project-visual > * { transform: scale(1.025); }
+    }
+
+    @media (max-width: 980px) {
+      .hero h1 { font-size: 52px; }
+      .section-header,
+      .skills-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-item:nth-child(2) { border-right: 0; }
+      .service-item:nth-child(-n + 2) { border-bottom: 1px solid #b8c9c3; }
+      .service-item:nth-child(3) { padding-left: 0; }
+      .timeline { margin-left: 0; }
+    }
+
+    @media (max-width: 720px) {
+      :root { --nav-height: 60px; }
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      .nav { gap: 16px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 13px; }
+      .nav-links a[href="#sobre-mi"],
+      .nav-links a[href="#experiencia"] { display: none; }
+      .nav-download { display: none; }
+      .hero {
+        min-height: calc(82svh - var(--nav-height));
+        background: linear-gradient(160deg, #172d33, var(--ink));
+      }
+      .hero-mark {
+        top: 12px;
+        right: 50%;
+        width: 160px;
+        transform: translateX(50%);
+      }
+      .hero-content { padding-block: 42px 48px; }
+      .eyebrow { font-size: 12px; }
+      .hero h1 { font-size: 38px; }
+      .hero-lead {
+        margin-top: 14px;
+        font-size: 17px;
+      }
+      .actions { margin-top: 22px; }
+      .button { width: 100%; }
+      .about-section { padding: 50px 0; }
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .about-photo {
+        width: 180px;
+        margin-inline: auto;
+      }
+      .about-copy h2 { font-size: 32px; }
+      .about-copy p:last-child { font-size: 17px; }
+      .section { padding: 64px 0; }
+      .services-section { padding: 58px 0; }
+      .services-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .services-heading h2 { font-size: 31px; }
+      .services-heading .button { width: 100%; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-item,
+      .service-item:first-child,
+      .service-item:nth-child(3) {
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid #b8c9c3;
+      }
+      .service-item:last-child { border-bottom: 0; }
+      .section-header { margin-bottom: 34px; }
+      .section h2 { font-size: 32px; }
+      .section-intro { font-size: 17px; }
+      .filter-button { padding-inline: 10px; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .focus-item {
+        padding: 24px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .focus-item:last-child { border-bottom: 0; }
+      .skill-group {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+      .timeline-entry {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding-left: 28px;
+      }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card-featured { grid-column: span 1; }
+      .enrollment-preview {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .project-visual { min-height: 176px; }
+      .education-grid { grid-template-columns: 1fr; gap: 42px; }
+      .contact-section { padding: 64px 0; }
+      .contact-section h2 { font-size: 34px; }
+      .contact-actions .button { width: 100%; }
+      .contact-float {
+        display: none;
+      }
+      .footer-layout {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+      .availability::before { animation: none; }
+      .motion-ready .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#inicio">
+        <img src="assets/logo-diego.png" alt="" width="38" height="38">
+        <span>Diego Dávila</span>
+      </a>
+      <div class="nav-links">
+        <a href="#sobre-mi">About me</a>
+        <a href="#experiencia">Experience</a>
+        <a href="#proyectos">Projects</a>
+        <a href="#contacto">Contact</a>
+        <a class="nav-download" href="assets/CV-Diego-Davila-Diaz-Systems-Engineering.pdf" download>Download CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <p class="availability">Available for new projects and opportunities</p>
+          <p class="eyebrow">Software development · IT operations · Automation</p>
+          <h1 id="hero-title">Diego Stefano Dávila Díaz</h1>
+          <p class="hero-lead">I turn business needs into clear, maintainable, and results-driven websites, systems, APIs, and automations.</p>
+          <div class="actions">
+            <a class="button button-primary" href="mailto:diegostd99@gmail.com?subject=Software%20project%20inquiry">Tell me about your project</a>
+            <a class="button button-secondary" href="#proyectos">View projects</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <img src="assets/logo-diego.png" alt="">
+      </div>
+    </section>
+
+    <section class="about-section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about-layout">
+        <img class="about-photo" src="assets/diego-davila.jpg" alt="Diego Dávila" width="1023" height="1537" loading="lazy">
+        <div class="about-copy">
+          <p class="section-kicker">Get to know me</p>
+          <h2 id="about-title">About me</h2>
+          <p>I'm Diego, a software developer with experience in IT operations. I like to understand how a process works before turning it into a practical solution, from a website or API to a time-saving automation. I study Systems Engineering at UPC and hold a degree in Computing and Information Technology from Cibertec.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section" id="servicios">
+      <div class="container">
+        <div class="services-heading">
+          <div>
+            <p class="section-kicker">Services</p>
+            <h2>Do you need a digital solution for your business or organization?</h2>
+          </div>
+          <a class="button" href="https://wa.me/51995191368?text=Hi%20Diego%2C%20I%27d%20like%20to%20request%20a%20project%20proposal" target="_blank" rel="noreferrer">Request a proposal</a>
+        </div>
+        <div class="services-grid">
+          <article class="service-item">
+            <strong>Websites and web applications</strong>
+            <p>Landing pages, portals, ecommerce sites, and responsive experiences designed to turn visits into opportunities.</p>
+          </article>
+          <article class="service-item">
+            <strong>Internal systems</strong>
+            <p>Admin panels, CRM solutions, and workflows tailored to each organization's real operations.</p>
+          </article>
+          <article class="service-item">
+            <strong>APIs and automation</strong>
+            <p>Integrations, data processing, and tools that reduce manual work and repetitive errors.</p>
+          </article>
+          <article class="service-item">
+            <strong>IT optimization and support</strong>
+            <p>Troubleshooting, platform improvements, and technical support to keep services operational.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="perfil">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Professional profile</p>
+            <h2>Software with an operational perspective</h2>
+          </div>
+          <p class="section-intro">Systems Engineering student at UPC and Computing and Information Technology graduate from Cibertec. I build web solutions, desktop applications, APIs, and automations, backed by hands-on experience in support, incident diagnosis, and platform operations.</p>
+        </div>
+
+        <div class="focus-grid" aria-label="Areas of expertise">
+          <article class="focus-item">
+            <span class="focus-index">01</span>
+            <h3>Software development</h3>
+            <p>Backend and full-stack applications, REST APIs, administrative systems, and desktop solutions.</p>
+          </article>
+          <article class="focus-item">
+            <span class="focus-index">02</span>
+            <h3>IT operations</h3>
+            <p>Systems support, incident analysis, operational continuity, and technical process improvement.</p>
+          </article>
+          <article class="focus-item">
+            <span class="focus-index">03</span>
+            <h3>Automation and data</h3>
+            <p>Python, SQL, integrations, document processing, and tools that reduce manual work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="competencias">
+      <div class="container skills-layout">
+        <div class="skills-copy">
+          <p class="section-kicker">Skills</p>
+          <h2>Technology applied to real-world problems</h2>
+          <p>My background combines product development, hardware integration, data management, and internal user support.</p>
+        </div>
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h3>Backend and web</h3>
+            <p>PHP, Laravel, Filament, Livewire, React, TypeScript, JavaScript, C#/.NET, and Java.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Automation</h3>
+            <p>Python, Pandoc, Tkinter, REST APIs, SMTP, batch processing, and MCP.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Data</h3>
+            <p>PostgreSQL, MySQL, SQL Server, SQLite, Power BI, and advanced Excel.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Operations</h3>
+            <p>Linux, Apache, technical support, incident diagnosis, Git/GitHub, and agile methodologies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h2>From support to systems improvement</h2>
+          </div>
+          <p class="section-intro">Progressive experience at the National University of Engineering and in private-sector environments, supporting critical systems, information, and processes.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-entry">
+            <p class="timeline-date">Jan 2026 — Jul 2026</p>
+            <div>
+              <h3>Information Systems Specialist</h3>
+              <p class="timeline-company">National University of Engineering (UNI) · DIAD</p>
+              <ul>
+                <li>Administration and optimization of institutional systems.</li>
+                <li>Diagnosis of complex incidents and improvement of support processes.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-entry">
+            <p class="timeline-date">Sep 2025 — Dec 2025</p>
+            <div>
+              <h3>IT Support</h3>
+              <p class="timeline-company">National University of Engineering (UNI) · DIAD</p>
+              <ul>
+                <li>Preventive and corrective support for institutional equipment, systems, and platforms.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-entry">
+            <p class="timeline-date">May 2025</p>
+            <div>
+              <h3>Junior Programmer</h3>
+              <p class="timeline-company">Pinturas del Perú S.A.</p>
+              <ul>
+                <li>Internal system maintenance, payment uploads, and platform issue resolution.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-entry">
+            <p class="timeline-date">2024 — 2025</p>
+            <div>
+              <h3>Technical support, document management, and administration</h3>
+              <p class="timeline-company">National University of Engineering (UNI)</p>
+              <ul>
+                <li>Human Resources support, information control, and digitization of institutional documents.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Selected projects</p>
+            <h2>Product, automation, and integration</h2>
+          </div>
+          <p class="section-intro">Each project addresses a specific need: attracting applicants, automating documents, controlling operations, integrating hardware, or managing critical information. I can bring the same capabilities to your next project.</p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web</button>
+          <button class="filter-button" type="button" data-filter="automation" aria-pressed="false">Automation</button>
+          <button class="filter-button" type="button" data-filter="systems" aria-pressed="false">Systems</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card project-card-featured" data-categories="web systems">
+            <div class="project-visual">
+              <div class="enrollment-preview" aria-hidden="true">
+                <div class="enrollment-panel">
+                  <strong>Applicant portal</strong>
+                  <div class="form-line"></div>
+                  <div class="form-line short"></div>
+                  <div class="form-line"></div>
+                  <div class="form-line short"></div>
+                </div>
+                <div class="enrollment-panel">
+                  <strong>Admin panel</strong>
+                  <div class="admin-metrics">
+                    <span>Applicants</span>
+                    <span>Payments</span>
+                    <span>Processes</span>
+                  </div>
+                  <div class="admin-row"><span>Applicant 018</span><b>Validated</b></div>
+                  <div class="admin-row"><span>Applicant 042</span><b>Pending</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Featured full-stack platform</p>
+              <h3>UNI Enrollment System</h3>
+              <p class="project-description">One of my most comprehensive projects: an API backend with authentication, queues, and permission management; an admin panel to operate the processes; and an independent frontend for applicant enrollment.</p>
+              <div class="tags"><span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Sanctum</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">PostgreSQL</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="web systems">
+            <div class="project-visual">
+              <div class="mini-window" aria-hidden="true">
+                <div class="mini-window-bar"><i></i><i></i><i></i></div>
+                <div class="crm-flow">
+                  <span>Contact <small>new message</small></span>
+                  <span>SIA Bot <small>checks knowledge</small></span>
+                  <span>Advisor <small>case assigned</small></span>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Web application</p>
+              <h3>SIA · Customer Service CRM</h3>
+              <p class="project-description">Manages conversations, cases, and query handoffs from automated responses to human advisors, with roles and traceability.</p>
+              <div class="tags"><span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Livewire</span><span class="tag">PostgreSQL</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="automation systems">
+            <div class="project-visual">
+              <div class="document-flow" aria-hidden="true">
+                <span class="document">DOCX</span>
+                <span class="flow-arrow">→</span>
+                <span class="document tex">TeX</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Document automation</p>
+              <h3>Word to LaTeX</h3>
+              <p class="project-description">Converts individual documents, folders, or entire document banks; processes images and generates LaTeX files with OCAD metadata.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">Pandoc</span><span class="tag">Tkinter</span><span class="tag">Pillow</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="systems web">
+            <div class="project-visual visual-biometric">
+              <img src="assets/smart-biometric-hub.png" alt="SmartBiometricHub visual identity" width="256" height="256">
+            </div>
+            <div class="project-content">
+              <p class="project-type">Biometrics and API</p>
+              <h3>SmartBiometricHub</h3>
+              <p class="project-description">1:N fingerprint enrollment and verification with a ZKTeco ZK9500 reader, a Windows application, and an API for applicants, processes, and biometric events.</p>
+              <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">Laravel</span><span class="tag">API REST</span></div>
+              <div class="project-footer"><span class="private-label">Private repositories</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="web">
+            <div class="project-visual">
+              <div class="store-preview" aria-hidden="true">
+                <strong>FerreteriAAA</strong>
+                <div class="store-row"><i></i><span>Hammer drill</span><b>PEN 249</b></div>
+                <div class="store-row"><i></i><span>Tool kit</span><b>PEN 159</b></div>
+                <div class="store-row"><i></i><span>Active quote</span><b>3 items</b></div>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Capstone project</p>
+              <h3>FerreteriAAA</h3>
+              <p class="project-description">Ecommerce and hardware store management with products, customers, quotes, sales, role-based authorization, and PDF reports.</p>
+              <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">EF Core</span><span class="tag">MySQL</span><span class="tag">Azure Blob</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="web">
+            <div class="project-visual visual-finance">
+              <img src="assets/finanzas-logo.webp" alt="Financial management system logo" width="720" height="720">
+            </div>
+            <div class="project-content">
+              <p class="project-type">Personal finance</p>
+              <h3>Financial Management System</h3>
+              <p class="project-description">Manages wallets, transactions, cards, loans, budgets, goals, alerts, and monthly reports.</p>
+              <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Inertia</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="automation systems">
+            <div class="project-visual">
+              <div class="attendance-preview" aria-hidden="true">
+                <div class="camera-frame">Camera active · capture validated</div>
+                <p><span>Peruvian ID</span><strong>••••2587</strong></p>
+                <p><span>Type</span><strong>CHECK-IN</strong></p>
+                <p><span>Status</span><strong>RECORDED</strong></p>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Desktop application</p>
+              <h3>Attendance Tracking</h3>
+              <p class="project-description">Records check-ins and check-outs with photo capture, employee lookup in Excel, SQLite persistence, and result exports.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Tkinter</span><span class="tag">SQLite</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="web systems">
+            <div class="project-visual">
+              <table class="followup-table" aria-hidden="true">
+                <thead><tr><th>Applicant</th><th>Action</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Record 018</td><td>Contact</td><td>In progress</td></tr>
+                  <tr><td>Record 042</td><td>Payment</td><td>Validated</td></tr>
+                  <tr><td>Record 071</td><td>Follow-up</td><td>Pending</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Institutional management</p>
+              <h3>DIAD Applicant Follow-up</h3>
+              <p class="project-description">Tracks UNI admission applicants with assignments, actions, payments, role-based permissions, and data imports and exports.</p>
+              <div class="tags"><span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Excel</span><span class="tag">TCPDF</span></div>
+              <div class="project-footer"><span class="private-label">Private repository</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="automation systems">
+            <div class="project-visual visual-uni">
+              <img src="assets/uni-logo.png" alt="National University of Engineering logo" width="413" height="128">
+            </div>
+            <div class="project-content">
+              <p class="project-type">Operations automation</p>
+              <h3>Bulk Email Sender</h3>
+              <p class="project-description">Distributes campaigns across multiple SMTP accounts, customizes templates from Excel or CSV, and resumes sending from checkpoints.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">SMTP</span><span class="tag">Pandas</span><span class="tag">Excel</span></div>
+              <div class="project-footer"><a class="project-link" href="https://github.com/PowerST2/envio-email-masivo" target="_blank" rel="noreferrer">View code ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="automation systems">
+            <div class="project-visual">
+              <div class="terminal" aria-hidden="true">
+                <div><b>$</b> list_databases</div>
+                <div><b>→</b> list_tables</div>
+                <div><b>→</b> describe_table</div>
+                <div><b>→</b> execute_query</div>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Tool integration</p>
+              <h3>MCP PostgreSQL</h3>
+              <p class="project-description">MCP server for inspecting schemas and operating local or remote PostgreSQL databases through environment-configured connections.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">PostgreSQL</span><span class="tag">psycopg2</span></div>
+              <div class="project-footer"><a class="project-link" href="https://github.com/PowerST2/MCP-Postgress" target="_blank" rel="noreferrer">View code ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="formacion">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Education</p>
+            <h2>Technical foundation and continuous learning</h2>
+          </div>
+          <p class="section-intro">University and technical education complemented by applied projects and hands-on experience in institutional environments.</p>
+        </div>
+        <div class="education-grid">
+          <div class="education-column">
+            <h3>Education</h3>
+            <div class="education-item">
+              <strong>Peruvian University of Applied Sciences (UPC)</strong>
+              <p>Systems Engineering · 2025 — Present</p>
+            </div>
+            <div class="education-item">
+              <strong>Cibertec Higher Education Institute</strong>
+              <p>Computing and Information Technology · Graduate, 2024</p>
+            </div>
+          </div>
+          <div class="education-column">
+            <h3>Certifications</h3>
+            <div class="education-item">
+              <strong>Spanish Spelling and Writing</strong>
+              <p>EIGRA / Peruvian Ministry of Education · 114 instructional hours</p>
+            </div>
+            <div class="education-item">
+              <strong>Public Management</strong>
+              <p>National University of Engineering (UNI) · 14 hours</p>
+            </div>
+            <div class="education-item">
+              <strong>Basic Excel</strong>
+              <p>Aprendemás / Interbank · 5 hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <div class="container contact-layout">
+        <div>
+          <h2>Do you need a website, a system, or process automation?</h2>
+          <p>Let's discuss the problem, your current workflow, and the outcome you need. I can help turn that need into a functional, maintainable solution.</p>
+        </div>
+        <div class="contact-links">
+          <div class="contact-actions">
+            <a class="button button-secondary" href="https://wa.me/51995191368?text=Hi%20Diego%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noreferrer">Message me on WhatsApp</a>
+          </div>
+          <a href="mailto:diegostd99@gmail.com">diegostd99@gmail.com</a>
+          <a href="tel:+51995191368">Peruvian mobile: +51 995 191 368</a>
+          <a href="https://github.com/PowerST2" target="_blank" rel="noreferrer">github.com/PowerST2 ↗</a>
+          <a href="assets/CV-Diego-Davila-Diaz-Systems-Engineering.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="contact-float" href="https://wa.me/51995191368?text=Hi%20Diego%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noreferrer">Let's discuss your project</a>
+
+  <footer>
+    <div class="container footer-layout">
+      <p>Diego Stefano Dávila Díaz</p>
+      <p>Los Olivos, Lima, Peru · <span id="year">2026</span></p>
+    </div>
+  </footer>
+
+  <script>
+    const matchesFilter = (categories, filter) =>
+      filter === "all" || categories.split(" ").includes(filter);
+
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        document.querySelectorAll(".filter-button").forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+
+        document.querySelectorAll(".project-card").forEach((card) => {
+          card.hidden = !matchesFilter(card.dataset.categories, filter);
+        });
+      });
+    });
+
+    document.documentElement.classList.add("motion-ready");
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".section-header, .services-heading, .service-item, .focus-item, .skill-group, .timeline-entry, .project-card, .education-column").forEach((element, index) => {
+      element.classList.add("reveal");
+      element.style.transitionDelay = `${(index % 3) * 70}ms`;
+      revealObserver.observe(element);
+    });
+
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55%" });
+
+    navLinks.forEach((link) => {
+      const section = document.querySelector(link.getAttribute("href"));
+      if (section) sectionObserver.observe(section);
+    });
+
+    const floatingContact = document.querySelector(".contact-float");
+    let heroVisible = true;
+    let contactVisible = false;
+    const updateFloatingContact = () => {
+      floatingContact.classList.toggle("is-visible", !heroVisible && !contactVisible);
+    };
+
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      updateFloatingContact();
+    }, { threshold: 0.08 }).observe(document.querySelector(".hero"));
+
+    new IntersectionObserver(([entry]) => {
+      contactVisible = entry.isIntersecting;
+      updateFloatingContact();
+    }, { threshold: 0.1 }).observe(document.querySelector(".contact-section"));
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+    console.assert(matchesFilter("web systems", "web") && matchesFilter("web", "all"), "Project filter");
+    console.assert(document.querySelectorAll(".project-card").length === 10, "Project count");
+  </script>
+</body>
+</html>
